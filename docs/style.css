@@ -1,0 +1,66 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #fff;
+  color: #17271c;
+  font: 1.125rem/1.5 system-ui, sans-serif;
+}
+
+main {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 1.5rem;
+  padding: max(1.5rem, env(safe-area-inset-top))
+           max(1.5rem, env(safe-area-inset-right))
+           max(1.5rem, env(safe-area-inset-bottom))
+           max(1.5rem, env(safe-area-inset-left));
+}
+
+.intro {
+  width: 100%;
+  max-width: 24rem;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 8vw, 3.25rem);
+  line-height: 1.15;
+}
+
+p {
+  margin: .75rem 0 1.5rem;
+}
+
+button {
+  width: 100%;
+  min-height: 3.25rem;
+  padding: .75rem 1.25rem;
+  border: 0;
+  border-radius: .875rem;
+  background: #215339;
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:active {
+  background: #153e29;
+}
+
+button:focus-visible {
+  outline: 3px solid #215339;
+  outline-offset: 4px;
+}
+
+.status {
+  min-height: 1.5em;
+  margin: .75rem 0 0;
+  color: #215339;
+}
