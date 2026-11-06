@@ -6,21 +6,93 @@
   <meta name="theme-color" content="#ffffff">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Familietafel">
+  <title>Familietafel · Inloggen</title>
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="apple-touch-icon" href="./icon-180.png">
   <link rel="icon" href="./icon-192.png">
-  <link rel="stylesheet" href="./style.css">
-  <script src="./app.js" defer></script>
-  <title>Familietafel</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; overflow: hidden; overscroll-behavior: none; }
+    html { touch-action: none; }
+    body {
+      background: #fff;
+      color: #17271c;
+      font: 1rem/1.4 system-ui, sans-serif;
+    }
+    main {
+      display: grid;
+      place-items: center;
+      height: 100vh;
+      height: 100dvh;
+      padding: max(1rem, env(safe-area-inset-top))
+               max(1rem, env(safe-area-inset-right))
+               max(1rem, env(safe-area-inset-bottom))
+               max(1rem, env(safe-area-inset-left));
+    }
+    .screen { width: 100%; max-width: 23rem; }
+    h1 { margin: 0; text-align: center; font-size: clamp(1.75rem, 8vw, 2.75rem); }
+    .note { margin: .4rem 0 1.25rem; text-align: center; color: #43594a; }
+    .fields, .actions { display: grid; gap: .65rem; }
+    label { display: block; font-weight: 600; }
+    input, button {
+      width: 100%;
+      min-height: 2.75rem;
+      border-radius: .65rem;
+      padding: .5rem .75rem;
+      font: inherit;
+    }
+    input { margin-top: .25rem; border: 1px solid #687c70; }
+    .actions { margin-top: .9rem; }
+    button { border: 1px solid #215339; background: #fff; color: #215339; font-weight: 700; }
+    button:last-child { background: #215339; color: #fff; }
+    :focus-visible { outline: 2px solid #215339; outline-offset: 2px; }
+    .status { margin: .55rem 0 0; min-height: 2.8em; font-size: .875rem; text-align: center; }
+    @media (max-height: 460px) {
+      main { padding-block: max(.5rem, env(safe-area-inset-top))
+                            max(.5rem, env(safe-area-inset-bottom)); }
+      .note { margin: .25rem 0 .55rem; }
+      .fields, .actions { gap: .4rem; }
+      .actions { margin-top: .55rem; }
+      .status { margin-top: .4rem; }
+    }
+    @media (orientation: landscape) and (max-height: 450px) {
+      .screen { max-width: 36rem; }
+      .fields, .actions { grid-template-columns: 1fr 1fr; }
+      .note { margin-bottom: .65rem; }
+    }
+    @media (orientation: landscape) and (max-height: 300px) {
+      .note { display: none; }
+      h1 { margin-bottom: .25rem; font-size: 1.5rem; }
+    }
+  </style>
 </head>
 <body>
   <main>
-    <div class="intro">
-      <h1>Familietafel</h1>
-      <p>Samen familierecepten bewaren.</p>
-      <button type="button" id="test-button">Schuif aan</button>
-      <p class="status" id="test-status" role="status"></p>
-    </div>
+    <section class="screen" aria-labelledby="title">
+      <h1 id="title">Familietafel</h1>
+      <p class="note">Probeer het inlogscherm op je telefoon.</p>
+      <div class="fields">
+        <label for="username">Gebruikersnaam
+          <input id="username" autocomplete="off" autocapitalize="none" spellcheck="false">
+        </label>
+        <label for="password">Wachtwoord
+          <input id="password" type="password" autocomplete="off">
+        </label>
+      </div>
+      <div class="actions">
+        <button type="button">Account maken</button>
+        <button type="button">Inloggen</button>
+      </div>
+      <p class="status" role="status">Schermtest. Gebruik alleen verzonnen gegevens.</p>
+    </section>
   </main>
+  <script>
+    const message = document.querySelector('[role="status"]');
+    document.querySelectorAll('.actions button').forEach((button) => {
+      button.addEventListener('click', () => {
+        message.textContent = 'De knop werkt. De database is nog niet aangesloten.';
+      });
+    });
+  </script>
 </body>
 </html>
