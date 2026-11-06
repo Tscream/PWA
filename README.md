@@ -9,7 +9,7 @@ Een eerste webapp om de installatie op iPhone te testen. Tik op **Schuif aan** o
 3. Kies **main** en **/docs**, en klik **Save**.
 4. Gebruik de HTTPS-link die bij **Pages** verschijnt zodra de site klaar is.
 
-Voor Pages vanuit een privérepository is een ondersteund GitHub-abonnement nodig. De gepubliceerde site van een persoonlijke repository is publiek toegankelijk. Zie de [GitHub-documentatie](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
+De GitHub Pages-demo is publiek toegankelijk. Zie de [GitHub-documentatie](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
 
 ## Installeren op iPhone
 
@@ -23,3 +23,5 @@ Zie ook de [iPhone-handleiding](https://support.apple.com/guide/iphone/open-as-w
 ## Broncode
 
 Alles voor deze versie staat in `docs/`. Er is geen bouwstap nodig. De paden zijn relatief zodat de app ook vanuit een submap zoals `/PWA/` werkt. Accounts, passkeys en receptenopslag horen bij een volgende versie met een server.
+
+De [Cloudflare-versie met accounts](cloudflare/) heeft een aparte server en database. Publiceer voor de installatietest alleen `/docs` via GitHub Pages.

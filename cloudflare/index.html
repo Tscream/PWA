@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Familietafel">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="apple-touch-icon" href="/icon-180.png">
+  <link rel="icon" href="/icon-192.png">
+  <link rel="stylesheet" href="/style.css">
+  <script type="module" src="/src/client.ts"></script>
+  <title>Familietafel</title>
+</head>
+<body>
+  <main>
+    <div class="intro">
+      <h1>Familietafel</h1>
+      <p>Samen familierecepten bewaren.</p>
+      <button type="button" id="start">Schuif aan</button>
+      <p class="status" id="home-status" role="status"></p>
+    </div>
+  </main>
+<dialog aria-labelledby="dialog-title"><form method="dialog"><button class="close" aria-label="Sluiten">×</button></form><h2 id="dialog-title">Welkom aan tafel</h2>
+<div id="signed-out"><p>Heb je al een passkey? Log dan direct in.</p><button id="passkey-login" class="secondary">Inloggen met passkey</button><hr><p>Eerste keer of toegang herstellen? Ontvang een eenmalige link per e-mail.</p><form id="email-form"><label for="email">E-mailadres</label><input id="email" type="email" autocomplete="email" required maxlength="254"><button class="secondary" type="submit">Stuur mij een inloglink</button></form><p class="note">Deze proefversie is alleen toegankelijk voor uitgenodigde testers.</p></div>
+<div id="signed-in" hidden><p id="profile"></p><p>Bewaar een passkey om de volgende keer gemakkelijk in te loggen.</p><button id="add-passkey" class="secondary">Passkey toevoegen</button><p id="passkey-count"></p><p>Het receptenboek volgt later. Je account is alvast je eigen plek aan tafel.</p><button id="logout" class="secondary">Uitloggen</button></div>
+<div id="confirm" hidden><p>Bevestig hieronder om je eenmalige inloglink te gebruiken.</p><button id="confirm-link" class="secondary">Bevestigen en inloggen</button></div><p id="status" role="status" aria-live="polite"></p></dialog>
+</body>
+</html>
